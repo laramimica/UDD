@@ -12,33 +12,16 @@
                   <th class="text-left">Pisac</th>
                   <th class="text-left">Žanr</th>
                   <th class="text-left">Ključne reči</th>
-                  <th class="text-left">Cena (EUR)</th>
-                  <th class="text-left"></th>
-                  <th class="text-left"></th>
+                  <th class="text-left">Sažetak</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="book in books" :key="book.id">
                   <td>{{ book.title }}</td>
-                  <td>{{ book.writer_id }}</td>
+                  <td>{{ book.writer }}</td>
                   <td>{{ book.genre }}</td>
                   <td>{{ book.keyWords }}</td>
-                  <td>{{ book.price }}</td>
-                  <td v-if="user !== null && user.userType === 'WRITER'">
-                      <router-link :to="'/updateBook/'+ book.id"
-                      type="button"
-                      style="width:65%;"
-                      class="btn btn-outline-secondary btn-block z-depth-2"
-                      >Ažuriraj</router-link>
-                  </td>
-                  <td v-if=" user !== null && user.userType === 'WRITER'">
-                    <button
-                      type="button"
-                      style="width:65%"
-                      class="btn btn-outline-danger btn-block z-depth-2"
-                      @click="del(book.id)"
-                      >Obriši</button>
-                  </td>
+                  <td>{{ book.highlight }}</td>
                 </tr>
               </tbody>
             </template>
@@ -61,23 +44,6 @@ export default {
   },
   computed: {
     ...mapGetters(['user']),
-  },
-  methods: {
-    del(id) {
-      axios
-      .delete("api/books/" + id)
-      .then(() => {
-        axios
-      .get("api/books")
-      .then(books => {
-        this.books = books.data;
-        
-      })
-      .catch(error => {
-        console.log(error);
-      });
-      })
-    }
   },
   mounted() {
     axios

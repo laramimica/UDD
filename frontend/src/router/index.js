@@ -8,16 +8,9 @@ import RegisterWriter from '../views/registration/RegisterWriter.vue'
 
 import Login from '../views/login/Login.vue'
 
-import Writers from '../views/writer/Writers.vue'
-import Readers from '../views/reader/Readers.vue'
-
-import Books from '../views/book/Books.vue'
-import BooksByWriter from '../views/book/BooksByWriter.vue'
-import AddBook from '../views/book/AddBook.vue'
-import UpdateBook from '../views/book/UpdateBook.vue'
-
-import Genres from '../views/genre/Genres.vue'
-import AddGenre from '../views/genre/AddGenre.vue'
+import Search from '../views/search/Search.vue'
+import Index from '../views/search/Index.vue'
+import Result from '../views/search/Result.vue'
 
 Vue.use(VueRouter)
 
@@ -50,44 +43,19 @@ const routes = [
     component: Login
   },
   {
-    path: '/writers',
-    name: 'Writers',
-    component: Writers
+    path: '/search',
+    name: 'Search',
+    component: Search
   },
   {
-    path: '/readers',
-    name: 'Readers',
-    component: Readers
+    path: '/index',
+    name: 'Index',
+    component: Index
   },
   {
-    path: '/addBook',
-    name: 'AddBook',
-    component: AddBook
-  },
-  {
-    path: '/updateBook/:id',
-    name: 'UpdateBook',
-    component: UpdateBook
-  },
-  {
-    path: '/books',
-    name: 'Books',
-    component: Books
-  },
-  {
-    path: '/booksByWriter',
-    name: 'BooksByWriter',
-    component: BooksByWriter
-  },
-  {
-    path: '/genres',
-    name: 'Genres',
-    component: Genres
-  },
-  {
-    path: '/addGenre',
-    name: 'AddGenre',
-    component: AddGenre
+    path: '/result',
+    name: 'Result',
+    component: Result
   }
 ]
 

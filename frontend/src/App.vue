@@ -11,6 +11,12 @@
       <!-- <v-btn icon to="/cart">
         <v-icon>mdi-cart</v-icon>
       </v-btn> -->
+      <v-btn icon to="/search"  v-if="user === null">
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+      <v-btn icon to="/index"  v-if="user === null">
+        <v-icon>mdi-alpha-i-circle-outline</v-icon>
+      </v-btn>
       <v-btn icon to="/login" v-if="user === null">
         <v-icon>mdi-account</v-icon>
       </v-btn>
