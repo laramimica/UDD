@@ -2,12 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-import Register from '../views/registration/Register.vue'
-import RegisterReader from '../views/registration/RegisterReader.vue'
-import RegisterWriter from '../views/registration/RegisterWriter.vue'
-
-import Login from '../views/login/Login.vue'
-
 import Search from '../views/search/Search.vue'
 import Index from '../views/search/Index.vue'
 import Result from '../views/search/Result.vue'
@@ -19,28 +13,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: Register,
-    children: [
-      {
-        path: 'reader',
-        name: 'Register Reader',
-        component: RegisterReader,
-      },
-      {
-        path: 'writer',
-        name: 'Register Writer',
-        component: RegisterWriter,
-      },
-    ]
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
   },
   {
     path: '/search',

@@ -9,19 +9,17 @@
               <thead>
                 <tr>
                   <th class="text-left">Naslov</th>
+                  <th class="text-left">Ključne reči</th>
                   <th class="text-left">Pisac</th>
                   <th class="text-left">Žanr</th>
-                  <th class="text-left">Ključne reči</th>
-                  <th class="text-left">Sažetak</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="book in books" :key="book.id">
+                <tr v-for="book in search" :key="book.title">
                   <td>{{ book.title }}</td>
+                  <td>{{ book.keywords }}</td>
                   <td>{{ book.writer }}</td>
-                  <td>{{ book.genre }}</td>
-                  <td>{{ book.keyWords }}</td>
-                  <td>{{ book.highlight }}</td>
+                  <td>{{ book.genres }}</td>
                 </tr>
               </tbody>
             </template>
@@ -34,8 +32,8 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
 import axios from "axios";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -43,18 +41,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['user']),
-  },
-  mounted() {
-    axios
-      .get("api/books")
-      .then(books => {
-        this.books = books.data;
-        
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    ...mapGetters(["search"])
   }
 };
 </script>

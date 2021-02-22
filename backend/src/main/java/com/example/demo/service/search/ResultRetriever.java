@@ -26,7 +26,7 @@ public class ResultRetriever {
 		List<ResultData> results = new ArrayList<ResultData>();
        
         for (Book book : repository.search(query)) {
-        	results.add(new ResultData(book.getTitle(), book.getKeywords(), book.getFilename(), ""));
+        	results.add(new ResultData(book.getTitle(), book.getKeywords(), book.getFilename(), "", book.getWriter(), book.getGenres()));
 		}
         
 		

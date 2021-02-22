@@ -3,11 +3,13 @@ const authService = ServiceFactory.get('auth');
 
 
 const state = {
-    user: null
+    user: null,
+    search: null
 };
 
 const getters = {
-    user: state => state.user
+    user: state => state.user,
+    search: state => state.search
 };
 
 const actions = {
@@ -23,6 +25,9 @@ const actions = {
 const mutations = {
     setUser: (state, data) => {
         state.user = data;
+    },
+    setSearch: (state, data) => {
+        state.search = data;
     }
 };
 
